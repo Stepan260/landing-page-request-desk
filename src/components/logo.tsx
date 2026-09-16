@@ -1,29 +1,18 @@
 export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 32 32"
-      fill="none"
+      viewBox="0 0 512 512"
       className={className}
       aria-hidden="true"
     >
-      <rect width="32" height="32" rx="9" fill="url(#rd-logo-gradient)" />
-      <path
-        d="M11 9.5h7.2a4.3 4.3 0 0 1 2.24 7.97L23 22.5h-3.1l-2.24-4.5H13.4v4.5H11v-13Zm2.4 2.2v4.1h4.6a2.05 2.05 0 1 0 0-4.1h-4.6Z"
-        fill="white"
-      />
-      <defs>
-        <linearGradient
-          id="rd-logo-gradient"
-          x1="0"
-          y1="0"
-          x2="32"
-          y2="32"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#0071e3" />
-          <stop offset="1" stopColor="#7c3aed" />
-        </linearGradient>
-      </defs>
+      <rect width="512" height="512" fill="#d92d20" />
+      <g
+        transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+        fill="#ffffff"
+        stroke="none"
+      >
+        <path d="M4655 4943 c-848 -738 -1767 -1822 -2580 -3043 -142 -213 -374 -577 -471 -741 l-31 -52 -42 78 c-68 127 -130 213 -223 311 -143 149 -298 243 -470 284 -140 34 -357 23 -469 -22 l-31 -13 63 -50 c424 -332 949 -930 1303 -1485 47 -74 89 -134 92 -133 3 1 43 78 88 170 312 633 784 1474 1309 2333 422 689 795 1272 1564 2438 9 12 14 22 12 22 -2 -1 -53 -44 -114 -97z" />
+      </g>
     </svg>
   );
 }

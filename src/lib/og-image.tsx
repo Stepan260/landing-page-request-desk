@@ -31,7 +31,7 @@ export function renderOgImage(eyebrow: string, title: string) {
               width: 56,
               height: 56,
               borderRadius: 16,
-              background: "linear-gradient(135deg, #0071e3, #7c3aed)",
+              background: "#d92d20",
             }}
           />
           <span style={{ fontSize: 32, fontWeight: 600, color: "#ffffff" }}>

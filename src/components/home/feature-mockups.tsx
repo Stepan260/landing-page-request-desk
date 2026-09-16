@@ -19,7 +19,7 @@ export function EmailToTaskMockup() {
         </div>
         <div className="min-w-0">
           <p className="truncate text-[13px] font-medium text-foreground">
-            support@yourstore.com
+            support@mg.requestdeskhq.com
           </p>
           <p className="truncate text-[12px] text-muted">
             &ldquo;My package arrived damaged&rdquo;

@@ -1,12 +1,16 @@
 export const SITE = {
   name: "Request Desk",
   domain: "requestdeskhq.com",
-  url: "https://requestdeskhq.com",
-  appUrl: "https://app.requestdeskhq.com",
+  url: "https://www.requestdeskhq.com",
+  // The app./marketing domain split from the playbook hasn't shipped yet —
+  // app.requestdeskhq.com doesn't resolve, and the real app is currently
+  // served at the root domain. Point here until that split goes live, then
+  // swap to "https://app.requestdeskhq.com".
+  appUrl: "https://www.requestdeskhq.com",
   tagline: "The helpdesk that lives inside Shopify.",
   description:
     "Request Desk turns support emails and Shopify orders into tasks your team can't lose track of — customer and order lookup built right into every task.",
-  supportEmail: "support@requestdeskhq.com",
+  supportEmail: "support@mg.requestdeskhq.com",
   twitter: "@requestdeskhq",
 };
 
