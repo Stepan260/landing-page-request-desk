@@ -22,10 +22,10 @@ const GOLD = "#e3a53d";
 export default function Test3Page() {
   return (
     <div style={{ backgroundColor: CREAM }}>
-      <Marquee />
       <Hero />
       <Highlights />
       <ShopByGrid />
+      <Testimonials />
       <IntegrationBand />
       <Pricing />
       <Faq />
@@ -77,43 +77,108 @@ function Badge({
   );
 }
 
-/* ---------- Announcement marquee ---------- */
-function Marquee() {
-  const text =
-    "FREE PLAN AVAILABLE  ·  NO CREDIT CARD REQUIRED  ·  SET UP IN 5 MINUTES  ·  ";
+/* ---------- Slow marquee strip (used inside Testimonials) ---------- */
+function Marquee({
+  text,
+  bg,
+  fg,
+  duration = 70,
+}: {
+  text: string;
+  bg: string;
+  fg: string;
+  duration?: number;
+}) {
   return (
-    <div
-      className="overflow-hidden py-2.5"
-      style={{ backgroundColor: NAVY }}
-      aria-hidden
-    >
+    <div className="overflow-hidden py-2.5" style={{ backgroundColor: bg }} aria-hidden>
       <style>{`
         @keyframes test3-marquee {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
         .test3-marquee-track {
-          animation: test3-marquee 22s linear infinite;
+          animation: test3-marquee ${duration}s linear infinite;
         }
         @media (prefers-reduced-motion: reduce) {
           .test3-marquee-track { animation: none; }
         }
       `}</style>
       <div className="test3-marquee-track flex w-max whitespace-nowrap">
-        <span
-          className="px-4 text-[12px] font-bold tracking-wide uppercase"
-          style={{ color: CREAM }}
-        >
-          {text.repeat(4)}
-        </span>
-        <span
-          className="px-4 text-[12px] font-bold tracking-wide uppercase"
-          style={{ color: CREAM }}
-        >
-          {text.repeat(4)}
-        </span>
+        {[0, 1].map((i) => (
+          <span
+            key={i}
+            className="px-4 text-[12px] font-bold tracking-wide uppercase"
+            style={{ color: fg }}
+          >
+            {text.repeat(4)}
+          </span>
+        ))}
       </div>
     </div>
+  );
+}
+
+/* ---------- Testimonials (placeholder quotes — swap for real
+   customer feedback before this ships) ---------- */
+const REVIEWS = [
+  {
+    quote:
+      "We used to lose emails in a shared inbox. Now every message becomes a task with the Shopify order already pulled up.",
+    name: "Anya K.",
+    role: "Owner, Acme Supply Co.",
+  },
+  {
+    quote:
+      "Tags sort themselves and I can see the whole history on a task without asking anyone. It's the calmest our queue has ever been.",
+    name: "Priya R.",
+    role: "Team member, Acme Supply Co.",
+  },
+  {
+    quote:
+      "Set up in an afternoon. My favorite part: nothing silently drops when we're over a limit — the owner just gets notified.",
+    name: "Tom S.",
+    role: "Team member, Acme Supply Co.",
+  },
+];
+
+function Testimonials() {
+  return (
+    <section className="py-20 sm:py-24">
+      <Container>
+        <h2
+          className="text-center text-2xl font-black tracking-tight uppercase sm:text-3xl"
+          style={{ color: NAVY }}
+        >
+          Loved by support teams
+        </h2>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          {REVIEWS.map((r) => (
+            <div key={r.name} className="rounded-2xl bg-white p-6">
+              <span style={{ color: GOLD }}>★★★★★</span>
+              <p className="mt-3 text-[14px] leading-relaxed" style={{ color: NAVY }}>
+                &ldquo;{r.quote}&rdquo;
+              </p>
+              <p className="mt-4 text-[13px] font-bold" style={{ color: NAVY }}>
+                {r.name}
+              </p>
+              <p className="text-[12px]" style={{ color: `${NAVY}80` }}>
+                {r.role}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Container>
+
+      <div className="mt-12">
+        <Marquee
+          text="★★★★★ CUT OUR REPLY TIME IN HALF  ·  ★★★★★ SET UP IN ONE AFTERNOON  ·  ★★★★★ NOTHING GETS LOST ANYMORE  ·  "
+          bg={NAVY}
+          fg={CREAM}
+          duration={70}
+        />
+      </div>
+    </section>
   );
 }
 
